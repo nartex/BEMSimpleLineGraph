@@ -2,7 +2,7 @@
 //  BEMSimpleLineGraphView.h
 //  SimpleLineGraph
 //
-//  Created by Bobo on 12/27/13. Updated by Sam Spencer on 1/11/14.
+//  Created by Bobo on 12/27/13. Updated by Sam Spencer on 1/11/14, Updated by Antoine Harlin on 6/11/15
 //  Copyright (c) 2013 Boris Emorine. All rights reserved.
 //  Copyright (c) 2014 Sam Spencer.
 //
@@ -381,6 +381,16 @@ IB_DESIGNABLE @interface BEMSimpleLineGraphView : UIView <UIGestureRecognizerDel
  @param index The index from left to right of a given point (X-axis). The first value for the index is 0.
  @return The Y-axis value at a given index. */
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index;
+
+/**
+ *  The horizontal position, between 0 and 1, of a point at the given index. It corresponds to the X-axis value with 0 as the minimal value displayed (left) and 1 as the maximal value displayed (right)
+ *
+ *  @param graph graph The graph object requesting the point value.
+ *  @param index The index from left to right of a given point (X-axis). The first value for the index is 0.
+ *
+ *  @return The X-axis position at a given index.
+ */
+- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph XValueForPointAtIndex:(NSInteger)index;
 
 
 @optional
