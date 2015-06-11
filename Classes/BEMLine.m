@@ -2,7 +2,7 @@
 //  BEMLine.m
 //  SimpleLineGraph
 //
-//  Created by Bobo on 12/27/13. Updated by Sam Spencer on 1/11/14.
+//  Created by Bobo on 12/27/13. Updated by Sam Spencer on 1/11/14, Updated by Antoine Harlin on 6/11/15
 //  Copyright (c) 2013 Boris Emorine. All rights reserved.
 //  Copyright (c) 2014 Sam Spencer.
 //
@@ -26,6 +26,7 @@
         _enableLeftReferenceFrameLine = YES;
         _enableBottomReferenceFrameLine = YES;
         _interpolateNullValues = YES;
+        _arrayOfXPositions = nil;
     }
     return self;
 }
@@ -166,7 +167,13 @@
     
     NSMutableArray *points = [NSMutableArray arrayWithCapacity:self.arrayOfPoints.count];
     for (int i = 0; i < self.arrayOfPoints.count; i++) {
-        CGPoint value = CGPointMake(xIndexScale * i, [self.arrayOfPoints[i] CGFloatValue]);
+        
+        CGPoint value;
+        if (self.arrayOfXPositions) {
+            value = CGPointMake([self.arrayOfXPositions[i] floatValue], [self.arrayOfPoints[i] CGFloatValue]);
+        } else {
+            value = CGPointMake(xIndexScale * i, [self.arrayOfPoints[i] CGFloatValue]);
+        }
         if (value.y != BEMNullGraphValue || !self.interpolateNullValues) {
             [points addObject:[NSValue valueWithCGPoint:value]];
         }
