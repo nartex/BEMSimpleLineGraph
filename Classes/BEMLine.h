@@ -2,7 +2,7 @@
 //  BEMLine.h
 //  SimpleLineGraph
 //
-//  Created by Bobo on 12/27/13. Updated by Sam Spencer on 1/11/14.
+//  Created by Bobo on 12/27/13. Updated by Sam Spencer on 1/11/14, Updated by Antoine Harlin on 6/11/15
 //  Copyright (c) 2013 Boris Emorine. All rights reserved.
 //  Copyright (c) 2014 Sam Spencer.
 //
@@ -76,6 +76,8 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 
 /// All of the point values
 @property (nonatomic) NSArray *arrayOfValues;
+
+@property (nonatomic) NSArray *arrayOfXPositions;
 
 /** Draw thin, translucent, reference lines using the provided X-Axis and Y-Axis coordinates.
  @see Use \p arrayOfVerticalRefrenceLinePoints to specify vertical reference lines' positions. Use \p arrayOfHorizontalRefrenceLinePoints to specify horizontal reference lines' positions. */
